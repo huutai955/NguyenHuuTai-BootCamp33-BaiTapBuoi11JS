@@ -59,50 +59,50 @@ function createStaff() {
     );
 
     // Validate Test
-    // var valid = true;
-    // valid = kiemTraRong(account.value, 'tbTKNV', "Tài khoản") 
-    // & kiemTraRong(staffName.value, 'tbTen', "Tên")
-    // & kiemTraRong(email.value, 'tbEmail', "Email")
-    // & kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")
-    // & kiemTraRong(salary.value, 'tbLuongCB', "Lương")
-    // & kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")
-    // & kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")
-    // & kiemTraChucVu(position.value);
-    // if (kiemTraRong(account.value, 'tbTKNV', "Tài khoản")) {
-    //     var validTK = kiemTraKySo(account.value);
-    //     valid &= validTK;
-    // }
-    // if(staffList) {
-    //     var validTKTrung = kiemTraTaiKhoangTrung(staffList);
-    //     valid &= validTKTrung;
-    // }
-    // if (kiemTraRong(staffName.value, 'tbTen', "Tên")) {
-    //    var validTen = kiemTraTen(staffName.value); 
-    //    valid &= validTen;
-    // }
-    // if (kiemTraRong(email.value, 'tbEmail', "Email")) {
-    //     var validEmail = kiemTraEmail(email.value);
-    //     valid &= validEmail;
-    // }
-    // if (kiemTraRong(salary.value, 'tbLuongCB', "Lương")) {
-    //     var validSalary = kiemTraLuong(salary.value);
-    //     valid &= validSalary;
-    // }
-    // if (kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")) {
-    //     var validWorkHours = kiemTraSoGioLam(workhours.value);
-    //     valid &= validWorkHours;
-    // }
-    // if (kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")) {
-    //     var validPassword = kiemTraPassword(password.value);
-    //     valid &= validPassword;
-    // }
-    // if (kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")) {
-    //     var validDate = kiemTraNgayLam(datepicker.value);
-    //     valid &= validDate;
-    // }
-    // if (!valid) {
-    //     return;
-    // }
+    var valid = true;
+    valid = kiemTraRong(account.value, 'tbTKNV', "Tài khoản") 
+    & kiemTraRong(staffName.value, 'tbTen', "Tên")
+    & kiemTraRong(email.value, 'tbEmail', "Email")
+    & kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")
+    & kiemTraRong(salary.value, 'tbLuongCB', "Lương")
+    & kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")
+    & kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")
+    & kiemTraChucVu(position.value);
+    if (kiemTraRong(account.value, 'tbTKNV', "Tài khoản")) {
+        var validTK = kiemTraKySo(account.value);
+        valid &= validTK;
+    }
+    if(staffList) {
+        var validTKTrung = kiemTraTaiKhoangTrung(staffList);
+        valid &= validTKTrung;
+    }
+    if (kiemTraRong(staffName.value, 'tbTen', "Tên")) {
+       var validTen = kiemTraTen(staffName.value); 
+       valid &= validTen;
+    }
+    if (kiemTraRong(email.value, 'tbEmail', "Email")) {
+        var validEmail = kiemTraEmail(email.value);
+        valid &= validEmail;
+    }
+    if (kiemTraRong(salary.value, 'tbLuongCB', "Lương")) {
+        var validSalary = kiemTraLuong(salary.value);
+        valid &= validSalary;
+    }
+    if (kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")) {
+        var validWorkHours = kiemTraSoGioLam(workhours.value);
+        valid &= validWorkHours;
+    }
+    if (kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")) {
+        var validPassword = kiemTraPassword(password.value);
+        valid &= validPassword;
+    }
+    if (kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")) {
+        var validDate = kiemTraNgayLam(datepicker.value);
+        valid &= validDate;
+    }
+    if (!valid) {
+        return;
+    }
 
     // Thêm đối tượng vào mảng
     staffList.push(staff);

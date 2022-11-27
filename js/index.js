@@ -312,10 +312,9 @@ function getLocalStorage(key) {
 
 // Khi load hoặc mở trang lên thì sẽ lấy thông tin từ localStorage 
 // với điều kiện độ dài mảng đang lớn hơn 0;
-console.log(staffList);
-window.onload = function () {
-    if (staffList?.length) {
+if (staffList?.length > 0) {
+    window.onload = function () {
         staffList = getLocalStorage('arrStaff')
+        renderStaff(staffList);
     }
-    renderStaff(staffList);
-}
+} 

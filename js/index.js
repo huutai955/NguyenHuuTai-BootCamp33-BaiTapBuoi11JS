@@ -60,25 +60,25 @@ function createStaff() {
 
     // Validate Test
     var valid = true;
-    valid = kiemTraRong(account.value, 'tbTKNV', "Tài khoản") 
-    & kiemTraRong(staffName.value, 'tbTen', "Tên")
-    & kiemTraRong(email.value, 'tbEmail', "Email")
-    & kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")
-    & kiemTraRong(salary.value, 'tbLuongCB', "Lương")
-    & kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")
-    & kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")
-    & kiemTraChucVu(position.value);
+    valid = kiemTraRong(account.value, 'tbTKNV', "Tài khoản")
+        & kiemTraRong(staffName.value, 'tbTen', "Tên")
+        & kiemTraRong(email.value, 'tbEmail', "Email")
+        & kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")
+        & kiemTraRong(salary.value, 'tbLuongCB', "Lương")
+        & kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")
+        & kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")
+        & kiemTraChucVu(position.value);
     if (kiemTraRong(account.value, 'tbTKNV', "Tài khoản")) {
         var validTK = kiemTraKySo(account.value);
         valid &= validTK;
     }
-    if(staffList) {
+    if (staffList) {
         var validTKTrung = kiemTraTaiKhoangTrung(staffList);
         valid &= validTKTrung;
     }
     if (kiemTraRong(staffName.value, 'tbTen', "Tên")) {
-       var validTen = kiemTraTen(staffName.value); 
-       valid &= validTen;
+        var validTen = kiemTraTen(staffName.value);
+        valid &= validTen;
     }
     if (kiemTraRong(email.value, 'tbEmail', "Email")) {
         var validEmail = kiemTraEmail(email.value);
@@ -105,6 +105,7 @@ function createStaff() {
     }
 
     // Thêm đối tượng vào mảng
+    console.log(staffList)
     staffList.push(staff);
     // Lưu mảng vào localStorage
     setLocalStorage("arrStaff", staffList);
@@ -150,7 +151,7 @@ function renderStaff(arr) {
             <button class="bg-success text-light" data-toggle="modal" data-target="#myModal" onclick="editStaff('${arr[i].account}')">Update</button>
             </th>             
             </tr>
-        `   
+        `
         output += str;
     }
     document.getElementById("tableDanhSach").innerHTML = output;
@@ -194,21 +195,21 @@ function editStaff(accountClick) {
 // Hàm chỉnh sửa đối tượng
 function updateStaff() {
     var valid = true;
-    valid = kiemTraRong(account.value, 'tbTKNV', "Tài khoản") 
-    & kiemTraRong(staffName.value, 'tbTen', "Tên")
-    & kiemTraRong(email.value, 'tbEmail', "Email")
-    & kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")
-    & kiemTraRong(salary.value, 'tbLuongCB', "Lương")
-    & kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")
-    & kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")
-    & kiemTraChucVu(position.value);
+    valid = kiemTraRong(account.value, 'tbTKNV', "Tài khoản")
+        & kiemTraRong(staffName.value, 'tbTen', "Tên")
+        & kiemTraRong(email.value, 'tbEmail', "Email")
+        & kiemTraRong(password.value, 'tbMatKhau', "Mật khẩu")
+        & kiemTraRong(salary.value, 'tbLuongCB', "Lương")
+        & kiemTraRong(workhours.value, 'tbGiolam', "Giờ làm")
+        & kiemTraRong(datepicker.value, "tbNgay", "Ngày làm")
+        & kiemTraChucVu(position.value);
     if (kiemTraRong(account.value, 'tbTKNV', "Tài khoản")) {
         var validTK = kiemTraKySo(account.value);
         valid &= validTK;
     }
     if (kiemTraRong(staffName.value, 'tbTen', "Tên")) {
-       var validTen = kiemTraTen(staffName.value); 
-       valid &= validTen;
+        var validTen = kiemTraTen(staffName.value);
+        valid &= validTen;
     }
     if (kiemTraRong(email.value, 'tbEmail', "Email")) {
         var validEmail = kiemTraEmail(email.value);
@@ -267,13 +268,13 @@ function searchStaff() {
 
 // Hàm loại bỏ dấu
 function removeVietnameseTones(str) {
-    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
-    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
-    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
-    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
-    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
-    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
-    str = str.replace(/đ/g,"d");
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
     str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
     str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
     str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
@@ -287,11 +288,11 @@ function removeVietnameseTones(str) {
     str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
     // Remove extra spaces
     // Bỏ các khoảng trắng liền nhau
-    str = str.replace(/ + /g," ");
+    str = str.replace(/ + /g, " ");
     str = str.trim();
     // Remove punctuations
     // Bỏ dấu câu, kí tự đặc biệt
-    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
+    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g, " ");
     return str;
 }
 
@@ -311,9 +312,10 @@ function getLocalStorage(key) {
 
 // Khi load hoặc mở trang lên thì sẽ lấy thông tin từ localStorage 
 // với điều kiện độ dài mảng đang lớn hơn 0;
-staffList = getLocalStorage("arrStaff");
-if (staffList) {
-    window.onload = function () {
-        renderStaff(staffList);
+
+window.onload = function () {
+    if (staffList) {
+        staffList = getLocalStorage('arrStaff')
     }
+    renderStaff(staffList);
 }

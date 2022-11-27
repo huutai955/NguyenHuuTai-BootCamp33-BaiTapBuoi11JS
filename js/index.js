@@ -258,7 +258,7 @@ function searchStaff() {
     var btnTimNV = document.getElementById("searchName");
     var btnTimNVHasNoTones = removeVietnameseTones(btnTimNV.value);
     for (var i = 0; i < staffList.length; i++) {
-        if (removeVietnameseTones(staffList[i].typeOfStaff()).search(btnTimNVHasNoTones) != -1) {
+        if (removeVietnameseTones(staffList[i].typeOfStaff().toLowerCase()).search(btnTimNVHasNoTones) != -1) {
             secondStaffList.push(staffList[i]);
         }
         console.log(typeof staffList[i].typeOfStaff());
@@ -312,9 +312,9 @@ function getLocalStorage(key) {
 
 // Khi load hoặc mở trang lên thì sẽ lấy thông tin từ localStorage 
 // với điều kiện độ dài mảng đang lớn hơn 0;
-
+console.log(staffList);
 window.onload = function () {
-    if (staffList) {
+    if (staffList?.length) {
         staffList = getLocalStorage('arrStaff')
     }
     renderStaff(staffList);
